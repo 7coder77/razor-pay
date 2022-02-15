@@ -40,7 +40,7 @@ def success():
 @app.route("/pay/<id>",methods=['GET','POST'])
 def pay(id):
     user=Users.query.filter_by(id=id).first()
-    client=razorpay.Client(auth=("rzp_test_6EryT0PqkVBbee","g5EP1R2qQkeVrWoFJ3TNe3Fx"))
+    client=razorpay.Client(auth=("abc","ds"))#id,secret key
     payment=client.order.create({'amount':(int(user.amount)*100),'currency':'INR','payment_capture':'1'})
     return render_template('pay.html',payment=payment,name=user.name)
 # g5EP1R2qQkeVrWoFJ3TNe3Fx
